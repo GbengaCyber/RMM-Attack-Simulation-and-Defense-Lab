@@ -18,36 +18,7 @@ The exercise covers initial access, execution, persistence, C2 communication, cr
 
 > **Target roles:** SOC Analyst | Incident Responder | IAM Analyst
 
----
 
-## Repository Structure
-
-```
-EagleSecureIT-Lab/
-│
-├── README.md
-│
-├── screenshots/
-│   ├── 01-initial-access/
-│   ├── 02-execution/
-│   ├── 03-persistence-c2/
-│   ├── 04-staging-exfiltration/
-│   ├── 05-telemetry/
-│   ├── 06-email-controls/
-│   ├── 07-identity-controls/
-│   ├── 08-endpoint-controls/
-│   ├── 09-detection-rules/
-│   └── 10-incident-response/
-│
-└── detection-rules/
-    ├── rule-01-rmm-downloaded.kql
-    ├── rule-02-rmm-execution-blocked.kql
-    ├── rule-03-rmm-service-installed.kql
-    ├── rule-04-rmm-process-detected.kql
-    ├── rule-05-rmm-c2-beacon.kql
-    ├── rule-06-msi-user-path.kql
-    └── rule-07-full-kill-chain.kql
-```
 
 ---
 
@@ -412,58 +383,3 @@ Microsoft Azure, Microsoft Entra ID, Microsoft Intune, Microsoft Defender for En
 
 ---
 
-## Screenshot Reference Guide
-
-When uploading your screenshots to GitHub place each file in the matching folder and name it exactly as shown below. The images will render inline in this README automatically.
-
-```
-screenshots/01-initial-access/
-    attacker-building-phish-email.png
-    phish-email-landed-inbox.png
-
-screenshots/02-execution/
-    adobefile-installing.png
-
-screenshots/03-persistence-c2/
-    victim-device-caught-atera.png
-    victim-desktop-overview.png
-
-screenshots/04-staging-exfiltration/
-    data-staging.png
-    data-sent-to-c2.png
-
-screenshots/05-telemetry/
-    atera-c2-beacon-kql.png
-    ntlm-logon-events-kql.png
-    zip-staging-kql.png
-
-screenshots/06-email-controls/
-    anti-malware-file-types.png
-    safe-attachments-policy.png
-    safe-links-click-protection.png
-    safe-links-url-rewriting.png
-    anti-phishing-policy.png
-
-screenshots/07-identity-controls/
-    conditional-access-policies.png
-    device-registration-mfa.png
-    intune-device-compliant.png
-
-screenshots/08-endpoint-controls/
-    asr-rules-block-mode.png
-    asr-rules-powershell-confirmed.png
-    app-control-business-policy.png
-    wdac-unsigned-blocked.png
-    adobefile-blocked-run2.png
-
-screenshots/09-detection-rules/
-    sentinel-analytics-rules-list.png
-    sentinel-incidents-fired.png
-
-screenshots/10-incident-response/
-    incident-96-resolved.png
-```
-
----
-
-*This lab was conducted entirely within a personal Microsoft 365 E5 development tenant. No production systems, real user data, or external infrastructure were involved. All decoy files contained placeholder text only.*
