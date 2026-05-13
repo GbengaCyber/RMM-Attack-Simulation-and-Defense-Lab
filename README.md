@@ -35,8 +35,8 @@ The exercise covers initial access, execution, persistence, C2 communication, cr
 | Email security | Microsoft Defender for Office 365 Plan 2 |
 | MDM | Microsoft Intune |
 | RMM tool | Atera (trial) |
-| Attacker mailbox | soclabtest3784@outlook.com |
-| Victim mailbox | test@eaglesecureit.com |
+| Attacker mailbox | soclabteXXXX@outlook.com |
+| Victim mailbox | test@eagXXXXreit.com |
 
 ---
 
