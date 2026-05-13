@@ -269,7 +269,7 @@ Threshold: 3 — Most Aggressive. Mailbox intelligence on. Spoof intelligence on
 ---
 <img width="800"  alt="image" src="https://github.com/user-attachments/assets/2a827713-0346-41d7-9248-447dbe53fe0e" />
 
----
+
 
 ---
 
@@ -277,7 +277,12 @@ Threshold: 3 — Most Aggressive. Mailbox intelligence on. Spoof intelligence on
 
 Eleven policies deployed, all enabled and active.
 
-[![Conditional Access policies list](screenshots/07-identity-controls/conditional-access-policies.png)](screenshots/07-identity-controls/conditional-access-policies.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/07f18b13-c988-4b5a-b2f9-34f501dcd05f" />
+
+
+---
 
 **Device registration MFA validated**
 
@@ -285,7 +290,7 @@ CA3 fired when the VM attempted Entra join — Microsoft Authenticator number ma
 
 ---
 
-<img width="800"  alt="image" src="https://github.com/user-attachments/assets/07f18b13-c988-4b5a-b2f9-34f501dcd05f" />
+<img width="850" alt="image" src="https://github.com/user-attachments/assets/e5ee66ae-b423-45a5-afac-1965080e0b21" />
 
 ---
 
