@@ -408,9 +408,9 @@ Rule 6 generated three High severity incidents during Run 2 testing, correctly c
 
 ---
 
-## Phase 4 — Incident Response
+## Phase 4: Incident Response
 
-### Incident ID 96 — Investigated and Resolved
+### Incident ID 96: Investigated and Resolved
 
 ---
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/a430c556-dfb9-4750-a63d-504dccbcc51a" />
@@ -431,9 +431,9 @@ Rule 6 generated three High severity incidents during Run 2 testing, correctly c
 
 ---
 
-### IR Playbook — RMM-Based Phishing Attack
+### IR Playbook: RMM Based Phishing Attack
 
-**Containment — first 15 minutes**
+**Containment: first 15 minutes**
 
 Isolate device in MDE to cut C2 while preserving forensics. Revoke all active Entra ID sessions. Reset account credentials. Block attacker sender domain via Exchange mail flow rules. Disable compromised account pending investigation.
 
