@@ -63,7 +63,11 @@ The attacker composed a spearphishing email impersonating a project coordinator 
 
 The email landed directly in the victim's Focused inbox with no filtering, no quarantine, and no warning. The external sender impersonating a colleague was not flagged by any control.
 
-[![Phishing email landed in inbox](screenshots/01-initial-access/phish-email-landed-inbox.png)](screenshots/01-initial-access/phish-email-landed-inbox.png)
+
+---
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/9a3f185f-1219-4bfd-ae63-1cf172e6be9e" />
+
+---
 
 ---
 
