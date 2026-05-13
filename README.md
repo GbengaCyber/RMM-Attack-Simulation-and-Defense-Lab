@@ -1,9 +1,9 @@
-# EagleSecureIT — RMM Attack Simulation and Defense Lab
+# EagleSecureIT - RMM Attack Simulation and Defense Lab
 
 **Author:** Gbenga Abraham  
-**Tenant:** eaglesecureit.com  
+**Tenant:** ea{xxx}eit.com  
 **Environment:** Microsoft Azure | Microsoft 365 E5 | Microsoft Sentinel  
-**Exercise type:** Purple Team — Full attack simulation with detection and response  
+**Exercise type:** Purple Team - Full attack simulation with detection and response  
 **Date:** May 2026
 
 ---
@@ -28,7 +28,7 @@ The exercise covers initial access, execution, persistence, C2 communication, cr
 |---|---|
 | Cloud platform | Microsoft Azure |
 | Identity provider | Microsoft Entra ID |
-| Endpoint | Windows 11 VM — soclab |
+| Endpoint | Windows 11 VM - soclab |
 | License | Microsoft 365 E5 |
 | SIEM | Microsoft Sentinel |
 | EDR | Microsoft Defender for Endpoint |
@@ -54,7 +54,8 @@ The attacker registered a free Atera RMM trial, generated an agent installer, re
 
 The attacker composed a spearphishing email impersonating a project coordinator named Alex Morgan, with the subject "Document Review — Urgent" and a malicious link embedded in the body.
 
-[![Attacker building phishing email](screenshots/01-initial-access/attacker-building-phish-email.png)](screenshots/01-initial-access/attacker-building-phish-email.png)
+[![Attacker building phishing email](<img width="800" alt="image" src="https://github.com/user-attachments/assets/5893145d-c662-495b-aae1-8e48b2bd7405" />
+)
 
 ---
 
