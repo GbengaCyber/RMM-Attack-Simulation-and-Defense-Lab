@@ -40,7 +40,7 @@ The exercise covers initial access, execution, persistence, C2 communication, cr
 
 ---
 
-## Phase 1 — Attack Simulation (Run 1 — No Controls)
+## Phase 1: Attack Simulation (Run 1: No Controls)
 
 ### Overview
 
@@ -50,13 +50,13 @@ The attacker registered a free Atera RMM trial, generated an agent installer, re
 
 ---
 
-### Step 1 — Phishing Email Crafted and Sent
+### Step 1: Phishing Email Crafted and Sent
 
 The attacker composed a spearphishing email impersonating a project coordinator named Alex Morgan, with the subject "Document Review — Urgent" and a malicious link embedded in the body.
 
 ---
 
-### Step 2 — Email Delivered to Focused Inbox
+### Step 2: Email Delivered to Focused Inbox
 
 The email landed directly in the victim's Focused inbox with no filtering, no quarantine, and no warning. The external sender impersonating a colleague was not flagged by any control.
 
@@ -68,7 +68,7 @@ The email landed directly in the victim's Focused inbox with no filtering, no qu
 
 ---
 
-### Step 3 — AdobeFile.msi Downloaded and Executed
+### Step 3: AdobeFile.msi Downloaded and Executed
 
 The victim downloaded and ran the installer. Windows configured AteraAgent silently in the background. The filename masqueraded as an Adobe file to avoid suspicion.
 
@@ -78,7 +78,7 @@ The victim downloaded and ran the installer. Windows configured AteraAgent silen
 
 ---
 
-### Step 4 — Attacker Gains Remote Access via Atera
+### Step 4: Attacker Gains Remote Access via Atera
 
 The Atera portal showed the soclab device as Online within minutes. The attacker had full remote visibility and control of the victim desktop.
 
@@ -89,7 +89,7 @@ The Atera portal showed the soclab device as Online within minutes. The attacker
 
 ---
 
-### Step 5 - Victim Desktop and Sensitive Data Visible
+### Step 5: Victim Desktop and Sensitive Data Visible
 
 The attacker viewed the victim desktop remotely showing decoy folders: Payroll, Financial Records, HR, Employee Records, Credit Cards, Health Records, Crypto Wallet Keys, and Saved Logins.
 
@@ -100,7 +100,7 @@ The attacker viewed the victim desktop remotely showing decoy folders: Payroll, 
 
 ---
 
-### Step 6 — Data Staged and Compressed
+### Step 6: Data Staged and Compressed
 
 Sensitive folders were compressed into a ZIP archive on the Desktop. MDE captured the FileCreated event for HR.zip and the FileRenamed event when it became EXPORT FILE.zip.
 
@@ -110,9 +110,9 @@ Sensitive folders were compressed into a ZIP archive on the Desktop. MDE capture
 
 ---
 
-### Step 7 — Data Exfiltrated to External Platform
+### Step 7: Data Exfiltrated to External Platform
 
-EXPORT FILE.zip was uploaded to an external file sharing platform via the browser. The upload was invisible in DeviceNetworkEvents because browser HTTPS traffic on port 443 blends with normal web activity — a critical detection gap documented in the lessons learned.
+EXPORT FILE.zip was uploaded to an external file sharing platform via the browser. The upload was invisible in DeviceNetworkEvents because browser HTTPS traffic on port 443 blends with normal web activity, a critical detection gap documented in the lessons learned.
 
 ---
 
@@ -172,7 +172,7 @@ EXPORT FILE.zip was uploaded to an external file sharing platform via the browse
 
 ---
 
-### Security Gaps — Run 1 Summary
+### Security Gaps : Run 1 Summary
 
 | Layer | Gap | Impact |
 |---|---|---|
@@ -215,9 +215,9 @@ EXPORT FILE.zip was uploaded to an external file sharing platform via the browse
 
 ---
 
-## Phase 2 - Security Controls Deployed (Run 2)
+## Phase 2: Security Controls Deployed (Run 2)
 
-### Email Gateway — Microsoft Defender for Office 365
+### Email Gateway: Microsoft Defender for Office 365
 
 **Anti-malware policy**
 
@@ -269,11 +269,9 @@ Threshold: 3 — Most Aggressive. Mailbox intelligence on. Spoof intelligence on
 ---
 <img width="800"  alt="image" src="https://github.com/user-attachments/assets/2a827713-0346-41d7-9248-447dbe53fe0e" />
 
-
-
 ---
 
-### Identity — Microsoft Entra Conditional Access
+### Identity: Microsoft Entra Conditional Access
 
 Eleven policies deployed, all enabled and active.
 
@@ -286,7 +284,7 @@ Eleven policies deployed, all enabled and active.
 
 **Device registration MFA validated**
 
-CA3 fired when the VM attempted Entra join — Microsoft Authenticator number matching was required before registration proceeded. A compromised account cannot silently register a rogue device.
+CA3 fired when the VM attempted Entra join, Microsoft Authenticator number matching was required before registration proceeded. A compromised account cannot silently register a rogue device.
 
 ---
 
@@ -305,7 +303,7 @@ Soclab VM showed Compliant in Intune after enrollment - managed by Intune, corpo
 
 ---
 
-### Endpoint — Intune and Microsoft Defender
+### Endpoint: Intune and Microsoft Defender
 
 **Attack Surface Reduction Rules — all in Block mode**
 
@@ -328,7 +326,7 @@ PowerShell on the VM confirmed all rule IDs were present and active on the endpo
 
 ---
 
-**Application Control for Business — WDAC**
+**Application Control for Business- WDAC**
 
 Built-in controls. Audit mode disabled, full enforcement. Unsigned executables from user-writable paths blocked at kernel level before process creation.
 
@@ -347,6 +345,10 @@ Custom unsigned test binary placed on Desktop. Execution denied — "Windows can
 
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/3caa3dc3-00d8-4db0-8476-a52143ffa00a" />
 
+---
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/7619c095-753f-4289-b8ee-5398e7896706" />
+
 
 ---
 
@@ -363,20 +365,24 @@ ASR rule: "This content is blocked, your administrator is not allowing you to ac
 
 ---
 
-Run 1 — silent install completed in 3 minutes with zero alerts.  
-Run 2 — blocked before execution by two independent controls simultaneously.
+Run 1: silent install completed in 3 minutes with zero alerts.  
+Run 2: blocked before execution by two independent controls simultaneously.
 
 ---
 
-## Phase 3 — Detection Engineering
+## Phase 3: Detection Engineering
 
 ### Custom Sentinel Analytics Rules
 
 Seven scheduled analytics rules authored and deployed in Microsoft Sentinel, each mapped to specific MITRE techniques observed in Run 1 telemetry.
 
-[![Sentinel analytics rules list](screenshots/09-detection-rules/sentinel-analytics-rules-list.png)](screenshots/09-detection-rules/sentinel-analytics-rules-list.png)
+---
 
-Full KQL for all seven rules is available in the [detection-rules/](detection-rules/) folder.
+<img width="1300" alt="image" src="https://github.com/user-attachments/assets/9a9c8139-b29e-4349-8ebf-aeff157270ef" />
+
+
+---
+
 
 | Rule | Tactic | Severity | Frequency |
 |---|---|---|---|
