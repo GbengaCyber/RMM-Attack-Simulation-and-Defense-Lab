@@ -54,9 +54,6 @@ The attacker registered a free Atera RMM trial, generated an agent installer, re
 
 The attacker composed a spearphishing email impersonating a project coordinator named Alex Morgan, with the subject "Document Review — Urgent" and a malicious link embedded in the body.
 
-[![Attacker building phishing email](<img width="800" alt="image" src="https://github.com/user-attachments/assets/5893145d-c662-495b-aae1-8e48b2bd7405" />
-)
-
 ---
 
 ### Step 2 — Email Delivered to Focused Inbox
@@ -67,7 +64,7 @@ The email landed directly in the victim's Focused inbox with no filtering, no qu
 ---
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/9a3f185f-1219-4bfd-ae63-1cf172e6be9e" />
 
----
+
 
 ---
 
