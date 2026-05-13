@@ -1,4 +1,4 @@
-# EagleSecureIT - RMM Attack Simulation and Defense Lab
+# RMM Attack Simulation and Defense Lab
 
 **Author:** Gbenga Abraham  
 **Tenant:** ea{xxx}eit.com  
