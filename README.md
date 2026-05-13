@@ -3,7 +3,7 @@
 **Author:** Gbenga Abraham  
 **Tenant:** ea{xxx}eit.com  
 **Environment:** Microsoft Azure | Microsoft 365 E5 | Microsoft Sentinel  
-**Exercise type:** Purple Team - Full attack simulation with detection and response  
+**Exercise type:** Purple Team: Full attack simulation with detection and response  
 **Date:** May 2026
 
 ---
