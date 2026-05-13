@@ -75,7 +75,9 @@ The email landed directly in the victim's Focused inbox with no filtering, no qu
 
 The victim downloaded and ran the installer. Windows configured AteraAgent silently in the background. The filename masqueraded as an Adobe file to avoid suspicion.
 
-[![AdobeFile installing Atera agent](screenshots/02-execution/adobefile-installing.png)](screenshots/02-execution/adobefile-installing.png)
+---
+<img width="864"  alt="AdobeFile Installing" src="https://github.com/user-attachments/assets/8390d609-0707-4cd9-855f-bf7c7cbac973" />
+
 
 ---
 
@@ -83,15 +85,21 @@ The victim downloaded and ran the installer. Windows configured AteraAgent silen
 
 The Atera portal showed the soclab device as Online within minutes. The attacker had full remote visibility and control of the victim desktop.
 
-[![Victim device caught in Atera console](screenshots/03-persistence-c2/victim-device-caught-atera.png)](screenshots/03-persistence-c2/victim-device-caught-atera.png)
+---
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/a8297aab-71b5-48a4-9255-45647e78fbd2" />
+
 
 ---
 
-### Step 5 — Victim Desktop and Sensitive Data Visible
+### Step 5 - Victim Desktop and Sensitive Data Visible
 
 The attacker viewed the victim desktop remotely showing decoy folders: Payroll, Financial Records, HR, Employee Records, Credit Cards, Health Records, Crypto Wallet Keys, and Saved Logins.
 
-[![Victim desktop overview via Atera](screenshots/03-persistence-c2/victim-desktop-overview.png)](screenshots/03-persistence-c2/victim-desktop-overview.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/6bc502a6-d05d-4e09-a9c2-a5b9a3bb7e21" />
+
 
 ---
 
@@ -99,7 +107,9 @@ The attacker viewed the victim desktop remotely showing decoy folders: Payroll, 
 
 Sensitive folders were compressed into a ZIP archive on the Desktop. MDE captured the FileCreated event for HR.zip and the FileRenamed event when it became EXPORT FILE.zip.
 
-[![Data staging — ZIP created on Desktop](screenshots/04-staging-exfiltration/data-staging.png)](screenshots/04-staging-exfiltration/data-staging.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/5810c3f0-18c5-4b77-8f5f-f5973eb93cf2" />
 
 ---
 
@@ -107,7 +117,10 @@ Sensitive folders were compressed into a ZIP archive on the Desktop. MDE capture
 
 EXPORT FILE.zip was uploaded to an external file sharing platform via the browser. The upload was invisible in DeviceNetworkEvents because browser HTTPS traffic on port 443 blends with normal web activity — a critical detection gap documented in the lessons learned.
 
-[![Data sent to external platform](screenshots/04-staging-exfiltration/data-sent-to-c2.png)](screenshots/04-staging-exfiltration/data-sent-to-c2.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/6cb1b62d-4a6b-4242-86ff-d316821438b6" />
+
 
 ---
 
@@ -138,15 +151,27 @@ EXPORT FILE.zip was uploaded to an external file sharing platform via the browse
 
 **Atera C2 beaconing confirmed in DeviceNetworkEvents**
 
-[![Atera C2 beacon KQL results](screenshots/05-telemetry/atera-c2-beacon-kql.png)](screenshots/05-telemetry/atera-c2-beacon-kql.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/16380dbc-1d6d-4421-bc05-b36d10afdf7e" />
+
+--
+
 
 **NTLM logon events with no MFA challenge**
 
-[![NTLM logon events KQL](screenshots/05-telemetry/ntlm-logon-events-kql.png)](screenshots/05-telemetry/ntlm-logon-events-kql.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/3daac699-0ecb-426e-b22c-308f7d087d5e" />
+
+---
+
 
 **ZIP file staging confirmed in DeviceFileEvents**
 
-[![ZIP staging KQL results](screenshots/05-telemetry/zip-staging-kql.png)](screenshots/05-telemetry/zip-staging-kql.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/5dfb4a32-efda-42d7-987e-0d672e944631" />
 
 ---
 
@@ -193,7 +218,7 @@ EXPORT FILE.zip was uploaded to an external file sharing platform via the browse
 
 ---
 
-## Phase 2 — Security Controls Deployed (Run 2)
+## Phase 2 - Security Controls Deployed (Run 2)
 
 ### Email Gateway — Microsoft Defender for Office 365
 
@@ -201,31 +226,53 @@ EXPORT FILE.zip was uploaded to an external file sharing platform via the browse
 
 Blocked file types: exe, msi, bat, cmd, vbs, js, ps1, hta, lnk, reg, jar. Action set to quarantine. Zero-hour auto purge enabled to retroactively quarantine emails already delivered if a threat is later identified.
 
-[![Anti-malware policy file types](screenshots/06-email-controls/anti-malware-file-types.png)](screenshots/06-email-controls/anti-malware-file-types.png)
+---
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/20357c2b-02ac-4e54-9e32-f7ff9c8d94af" />
+
+
+---
 
 **Safe Attachments**
 
 Action: Block. Quarantine policy: AdminOnlyAccessPolicy — users cannot self-release. Sandbox detonation holds delivery until verdict is confirmed.
 
-[![Safe Attachments policy](screenshots/06-email-controls/safe-attachments-policy.png)](screenshots/06-email-controls/safe-attachments-policy.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/f33fa2d8-5165-49ba-993b-e5eff85e1b17" />
+
+---
 
 **Safe Links**
 
 Active across email, Teams, and Office 365 apps. Real-time scanning before delivery. Users cannot click through to the original URL. Click tracking feeds UrlClickEvents for detection rules.
 
-[![Safe Links click protection settings](screenshots/06-email-controls/safe-links-click-protection.png)](screenshots/06-email-controls/safe-links-click-protection.png)
+---
+
+<img width="2220" height="1256" alt="image" src="https://github.com/user-attachments/assets/0eb6fe16-f470-4ebd-ba52-bb2b879084a3" />
+
+
+---
 
 **Safe Links validated**
 
 Hovering over the phishing link showed the URL rewritten through can01.safelinks.protection.outlook.com — proof the policy is active and scanning every click before the user reaches the destination.
 
-[![Safe Links URL rewriting evidence](screenshots/06-email-controls/safe-links-url-rewriting.png)](screenshots/06-email-controls/safe-links-url-rewriting.png)
+---
+
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/e7839272-f31d-4cda-9bb3-9f8288103a67" />
+
+---
 
 **Anti-phishing**
 
 Threshold: 3 — Most Aggressive. Mailbox intelligence on. Spoof intelligence on. Priority 1 — evaluates before any other rule.
 
-[![Anti-phishing policy settings](screenshots/06-email-controls/anti-phishing-policy.png)](screenshots/06-email-controls/anti-phishing-policy.png)
+---
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/2a827713-0346-41d7-9248-447dbe53fe0e" />
+
+---
 
 ---
 
@@ -239,13 +286,20 @@ Eleven policies deployed, all enabled and active.
 
 CA3 fired when the VM attempted Entra join — Microsoft Authenticator number matching was required before registration proceeded. A compromised account cannot silently register a rogue device.
 
-[![Device registration MFA prompt](screenshots/07-identity-controls/device-registration-mfa.png)](screenshots/07-identity-controls/device-registration-mfa.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/07f18b13-c988-4b5a-b2f9-34f501dcd05f" />
+
+---
 
 **Device compliance confirmed**
 
-Soclab VM showed Compliant in Intune after enrollment — managed by Intune, corporate ownership, Windows 10.0.26200.8246.
+Soclab VM showed Compliant in Intune after enrollment - managed by Intune, corporate ownership, Windows 10.0.26200.8246.
 
-[![Intune device compliance](screenshots/07-identity-controls/intune-device-compliant.png)](screenshots/07-identity-controls/intune-device-compliant.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/1731adfc-41c0-471f-913b-428f09cf05e4" />
+
 
 ---
 
@@ -255,36 +309,57 @@ Soclab VM showed Compliant in Intune after enrollment — managed by Intune, cor
 
 All rules deployed to All Devices group. Enforced via both MDM and MicrosoftSense channels after enabling MDE security settings management.
 
-[![ASR rules all set to Block](screenshots/08-endpoint-controls/asr-rules-block-mode.png)](screenshots/08-endpoint-controls/asr-rules-block-mode.png)
+---
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/ebb4146b-84ce-4c94-8901-9e2754fb4cd6" />
+
+---
 
 **ASR rules confirmed on device**
 
 PowerShell on the VM confirmed all rule IDs were present and active on the endpoint.
 
-[![ASR rules confirmed via PowerShell](screenshots/08-endpoint-controls/asr-rules-powershell-confirmed.png)](screenshots/08-endpoint-controls/asr-rules-powershell-confirmed.png)
+---
+
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/5f4bb547-e0d8-47cf-8a94-b7282d8ce527" />
+
+---
 
 **Application Control for Business — WDAC**
 
-Built-in controls. Audit mode disabled — full enforcement. Unsigned executables from user-writable paths blocked at kernel level before process creation.
+Built-in controls. Audit mode disabled, full enforcement. Unsigned executables from user-writable paths blocked at kernel level before process creation.
 
-[![App Control for Business policy](screenshots/08-endpoint-controls/app-control-business-policy.png)](screenshots/08-endpoint-controls/app-control-business-policy.png)
+
+---
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/02b4c0a3-c3a5-4cb0-9856-0e74ce3faea4" />
+
+
+---
 
 **WDAC validated**
 
 Custom unsigned test binary placed on Desktop. Execution denied — "Windows cannot access the specified device, path, or file." Blocked at kernel level before the process started.
 
-[![WDAC blocking unsigned executable](screenshots/08-endpoint-controls/wdac-unsigned-blocked.png)](screenshots/08-endpoint-controls/wdac-unsigned-blocked.png)
+---
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/3caa3dc3-00d8-4db0-8476-a52143ffa00a" />
+
 
 ---
 
-### Run 2 Result — AdobeFile.msi Blocked
+### Run 2 Result: AdobeFile.msi Blocked
 
 Two independent controls fired simultaneously against the same file:
 
 Windows Installer policy: "The system administrator has set policies to prevent this installation."  
-ASR rule: "This content is blocked — your administrator is not allowing you to access content from AdobeFile.msi."
+ASR rule: "This content is blocked, your administrator is not allowing you to access content from AdobeFile.msi."
 
-[![AdobeFile.msi blocked by two controls](screenshots/08-endpoint-controls/adobefile-blocked-run2.png)](screenshots/08-endpoint-controls/adobefile-blocked-run2.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/860adf52-897b-44ff-8e76-7776d0d40eff" />
+
+---
 
 Run 1 — silent install completed in 3 minutes with zero alerts.  
 Run 2 — blocked before execution by two independent controls simultaneously.
@@ -317,7 +392,11 @@ Full KQL for all seven rules is available in the [detection-rules/](detection-ru
 
 Rule 6 generated three High severity incidents during Run 2 testing, correctly categorised as Execution and auto-tagged with MITRE techniques T1204, T1036, T1204.002, and T1036.004.
 
-[![Sentinel incidents fired](screenshots/09-detection-rules/sentinel-incidents-fired.png)](screenshots/09-detection-rules/sentinel-incidents-fired.png)
+---
+
+<img width="800"  alt="image" src="https://github.com/user-attachments/assets/6f5dd64b-693f-42de-8a17-0243eea73a42" />
+
+
 
 ---
 
@@ -325,7 +404,10 @@ Rule 6 generated three High severity incidents during Run 2 testing, correctly c
 
 ### Incident ID 96 — Investigated and Resolved
 
-[![Incident 96 resolved with IR notes](screenshots/10-incident-response/incident-96-resolved.png)](screenshots/10-incident-response/incident-96-resolved.png)
+---
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/a430c556-dfb9-4750-a63d-504dccbcc51a" />
+
+---
 
 | Field | Value |
 |---|---|
@@ -334,10 +416,10 @@ Rule 6 generated three High severity incidents during Run 2 testing, correctly c
 | First activity | May 12, 2026, 1:18 PM |
 | Detection source | Microsoft Sentinel scheduled rule |
 | MITRE techniques | T1204, T1036, T1204.002, T1036.004 |
-| Assigned to | GbengaAbraham@EagleSecureIT |
+| Assigned to | GbenXXXXX@XXXreIT |
 | Status | Resolved |
-| Classification | True Positive — Security Testing |
-| Resolution | Confirmed test activity — AdobeFile.msi execution attempt blocked by ASR policy |
+| Classification | True Positive - Security Testing |
+| Resolution | Confirmed test activity - AdobeFile.msi execution attempt blocked by ASR policy |
 
 ---
 
